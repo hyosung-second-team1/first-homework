@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KANBAN BOARD</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./kanban.js"></script>
+  </head>
+  <body>
+    <div class="total-container">
+      <section class="header-container">
+        <h1>KANBAN BOARD</h1>
+      </section>
+      <!-- TODO: TO-DO register 버튼 클릭 시, input 나오게 하기 toggle 처리 -->
+      <!-- TODO: TO-DO 등록하기 추가 -->
+      <!-- TODO: TO-DO done 상태일 시, 박스 옮기거나, 완료 체크 시 밑줄 체크 -->
+      <section class="todo-register-container">
+        <button class="add-btn">
+          <span>TO DO 추가하기</span>
+        </button>
+        <form class="todo-submit">
+          <input type="text" value="" placeholder="할 일을 입력해주세요" />
+          <button class="submit-btn">등록</button>
+        </form>
+      </section>
+      <div class="kanban-content">
+        <section>
+          <h3 class="not-started-badge">not-started</h3>
+          <ul class="todo-container list-box">
+            <li class="draggable" draggable="true">todo1</li>
+            <li class="draggable" draggable="true">todo2</li>
+            <li class="draggable" draggable="true">todo3</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="progress-badge">progress</h3>
+          <ul class="progress-container list-box">
+            <li class="draggable" draggable="true">progress</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="blocked-badge">blocked</h3>
+          <ul class="blocked-container list-box">
+            <li class="draggable" draggable="true">blocked</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="done-badge">done</h3>
+          <ul class="done-container list-box">
+            <li class="draggable" draggable="true">done</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

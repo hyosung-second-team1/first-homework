@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+
+* {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.total-container {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+}
+
+.kanban-content {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.kanban-content ul {
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  list-style: none;
+}
+
+.kanban-content section {
+  width: 100%;
+}
+
+.list-box {
+  min-height: 100px;
+  padding: 1rem;
+}
+
+.kanban-content h3 {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.not-started-badge {
+  background-color: #ddd;
+}
+
+.progress-badge {
+  background-color: #f0e7f6;
+}
+
+.blocked-badge {
+  background-color: #ffdce0;
+}
+
+.done-badge {
+  background-color: #cbdfd8;
+}
