@@ -1,0 +1,115 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #272829;
+}
+
+a {
+  color: #149ddd;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #37b3ed;
+  text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+# Header(Navigation)
+--------------------------------------------------------------*/
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -300px;
+  z-index: 9997;
+  padding: 0 20px;
+  overflow-y: auto;
+  transition: right ease-in-out 0.5s;
+  background-color: rgba(253, 251, 251, 0.7);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+#sidebar1 {
+  width: 300px;
+}
+
+#sidebar2 {
+  width: 100px;
+}
+
+.sidebar.mobile-nav-active {
+  right: 0px;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu {
+  height: 100vh;
+  padding: 30px 0;
+}
+
+.nav-menu>ul {
+  height: 80%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-menu>ul>li {
+  width: 100%;
+  list-style-type:none;
+}
+
+.choice-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.draw-icon {
+  width: 100%;
+  cursor: pointer;
+}
+
+/*--------------------------------------------------------------
+# Button Bar
+--------------------------------------------------------------*/
+
+/* Mobile Navigation */
+#btn-bar {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  padding: 20px 20px 0 20px;
+  width: 90px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.bar-icon {
+  width: 100%;
+  margin-bottom: 30px;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+/*--------------------------------------------------------------
+# Canvas
+--------------------------------------------------------------*/
+
+#canvas {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  margin: 0px auto;
+  object-fit: contain;
+}
