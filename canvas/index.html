@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>iPortfolio Bootstrap Template - Index</title>
+  <title>koffy : canvas</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -18,24 +18,31 @@
 </head>
 
 <body>
-	<!-- ======= nav toggle button ======= -->
-  <div id="btn-bar">
+  <!-- ======= menubar ======= -->
+  <!-- menu toggle button-->
+  <img src="assets/icon/menu.png" alt="" class="fixed-icon" id="menu-icon">
+  <!-- sticker delete button -->
+  <img src="assets/icon/cancel.png" alt="" class="fixed-icon" id="cancel-icon">
+  <!-- menubar -->
+  <div class="btn-bar active">
+    <img src="assets/icon/left.png" alt="" class="bar-icon" id = "menu-toggle">
     <img src="assets/icon/home.png" alt="" class="bar-icon">
     <img src="assets/icon/background.png" alt="" class="bar-icon" id="toggle1">
     <img src="assets/icon/draw.png" alt="" class="bar-icon" id="toggle2">
     <img src="assets/icon/character.png" alt="" class="bar-icon" id="toggle3">
-    <img src="assets/icon/save.png" alt="" class="bar-icon">
-    <img src="assets/icon/reset.png" alt="" class="bar-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <img src="assets/icon/save.png" alt="save" class="bar-icon" id="save">
+    <img src="assets/icon/reset.png" alt="" class="bar-icon" data-bs-toggle="modal" data-bs-target="#reset-modal">
   </div>
+  <!-- menubar End -->
 
   <!-- ======= Header1 ======= -->
   <header class="sidebar" id="sidebar1">
     <div class="d-flex flex-column">
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-					<li id="bg1"><img src="assets/img/bg1.jpg" alt="background_1" class="choice-image"></li>
-					<li id="bg2"><img src="assets/img/bg2.jpg" alt="background_2" class="choice-image"></li>
-					<li id="bg3"><img src="assets/img/bg3.jpg" alt="background_3" class="choice-image"></li>
+					<li><img src="assets/img/bg1.jpg" alt="background_1" class="choice-image" data-bs-toggle="modal" data-bs-target="#change-modal" id="bg1"></li>
+					<li><img src="assets/img/bg2.jpg" alt="background_2" class="choice-image" data-bs-toggle="modal" data-bs-target="#change-modal" id="bg2"></li>
+					<li><img src="assets/img/bg3.jpg" alt="background_3" class="choice-image" data-bs-toggle="modal" data-bs-target="#change-modal" id="bg3"></li>
         </ul>
       </nav>
     </div>
@@ -45,22 +52,72 @@
     <div class="d-flex flex-column">
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><img src="assets/icon/pen1.png" alt="pen1" class="draw-icon" id="pen1"></li>
-          <li><img src="assets/icon/pen2.png" alt="pen2" class="draw-icon" id="pen2"></li>
-          <li><img src="assets/icon/pen3.png" alt="pen3" class="draw-icon" id="pen3"></li>
+          <li><img src="assets/icon/draw.png" alt="draw" class="draw-icon" id="draw"></li>
           <li><img src="assets/icon/eraser.png" alt="eraser" class="draw-icon" id="eraser"></li>
+          <li><img src="assets/icon/setting.png" alt="thickness" class="draw-icon" id="thickness" data-bs-toggle="modal" data-bs-target="#thickness-modal"></li>
+          <li><img src="assets/icon/color.png" alt="draw-color" class="draw-icon" id="draw-color"></li>
+          <li><img src="assets/icon/draw_cancel.png" alt="draw-cancel" class="draw-icon" id="draw-cancel"></li>
         </ul>
       </nav>
     </div>
   </header>
+    <!-- ======= Header3 ======= -->
+    <header class="sidebar" id="sidebar3">
+      <div class="d-flex flex-column">
+        <nav id="navbar" class="nav-menu navbar">
+          <ul>
+            <li><img src="assets/img/drag1.png" alt="drag1" draggable = "true" class="drag-icon" id="drag1" ></li>
+            <li><img src="assets/img/drag2.png" alt="drag1" draggable = "true" class="drag-icon" id="drag2"></li>
+            <li><img src="assets/img/drag3.png" alt="drag1" draggable = "true" class="drag-icon" id="drag3"></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 	<!-- ======= end Headers ======= -->
 
-  <!-- ======= Reset Modal ======= -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- ======= Change Modal ======= -->
+  <div class="modal fade" id="change-modal" tabindex="-1" aria-labelledby="change-modalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">캔버스 초기화</h1>
+          <h1 class="modal-title fs-5" id="change-modalLabel">캔버스 배경 변경</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          배경을 변경 시 현재까지 그린 그림은 초기화됩니다.<br>
+          진행하시겠습니까?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="canvas-change">변경</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ======= Thickness Modal ======= -->
+  <div class="modal fade" id="thickness-modal" tabindex="-1" aria-labelledby="thickness-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="thickness-modalLabel">펜 굵기 조절</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <label for="thickness-range" class="form-label">현재 굵기 : <span id="current-thickness">5</span></label>
+          <input type="range" class="form-range" min="1" max="20" step="1" id="thickness-range">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="thickness-change">완료</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ======= Reset Modal ======= -->
+  <div class="modal fade" id="reset-modal" tabindex="-1" aria-labelledby="reset-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="reset-modalLabel">캔버스 초기화</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -75,11 +132,6 @@
     </div>
   </div>
   <!-- ======= End Reset Modal ======= -->
-
-  <!-- ======= Hero Section ======= -->
-  <!-- <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-  </section> -->
-	<!-- ======= End Hero Section ======= -->
 
 	<!-- ======= Canvas Section ======= -->
   <canvas id="canvas"></canvas>
