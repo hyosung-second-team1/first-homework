@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KANBAN BOARD</title>
     <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
     <script defer src="./kanban.js"></script>
   </head>
   <body>
@@ -12,16 +16,22 @@
       <section class="header-container">
         <h1>KANBAN BOARD</h1>
       </section>
-      <!-- TODO: TO-DO register 버튼 클릭 시, input 나오게 하기 toggle 처리 -->
-      <!-- TODO: TO-DO 등록하기 추가 -->
-      <!-- TODO: TO-DO done 상태일 시, 박스 옮기거나, 완료 체크 시 밑줄 체크 -->
+      <!-- TODO: localStorage 적용 (저장 버튼) -->
+      <!-- TODO: drag ghost 객체 만들기 -->
+      <!-- TODO: CSS 완성 -->
+      <!-- TODO: code 깔끔하게 리팩토링 하기 -->
       <section class="todo-register-container">
         <button class="add-btn">
           <span>TO DO 추가하기</span>
         </button>
-        <form class="todo-submit">
-          <input type="text" value="" placeholder="할 일을 입력해주세요" />
-          <button class="submit-btn">등록</button>
+        <form class="todo-form hidden">
+          <input
+            name="todo-input"
+            type="text"
+            value=""
+            placeholder="할 일을 입력해주세요"
+          />
+          <button type="submit" class="submit-btn">등록</button>
         </form>
       </section>
       <div class="kanban-content">

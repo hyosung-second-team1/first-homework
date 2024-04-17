@@ -12,6 +12,14 @@
   margin: auto;
 }
 
+.hidden {
+  display: none;
+}
+
+.done ~ span {
+  text-decoration: line-through;
+}
+
 .kanban-content {
   width: 100%;
   display: flex;
@@ -58,4 +66,9 @@
 
 .done-badge {
   background-color: #cbdfd8;
+}
+
+/* test */
+input[type="checkbox"]:checked {
+  box-shadow: 0 0 0 3px hotpink;
 }
