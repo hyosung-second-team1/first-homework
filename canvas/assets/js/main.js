@@ -284,7 +284,7 @@ on('drop', '#cancel-icon', cancelChoose);
 
 // 이벤트 등록 - 홈으로 이동
 on('click', '#home', () => {
-  // location.href = '../index.html';
+  location.href = '../index.html';
 });
 
 

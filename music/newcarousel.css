@@ -1,0 +1,255 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+html {
+  height: 100vh;
+}
+
+i {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+i:hover {
+    color: rgb(254, 219, 253);
+    transform: scale(1.2);
+}
+
+i.active {
+    color: var(--primary-color);
+}
+
+body {
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: var(--primary-color); */
+    background-image: url("assets_p/배경화면09.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carousel {
+    display: flex;
+	position: relative;
+	max-height: 100%;
+	height: 100%;
+    width: 50%;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    /* flex-wrap: wrap-reverse; */
+    /* overflow: hidden; */
+
+  .slider {
+    display: flex;
+	text-align: center;
+    align-items: center;
+	margin: 0 auto;
+	/* align-self: flex-start; */
+	/* position: relative; */
+    justify-content: center;
+	height: 100%;
+	width: 100%;
+    transition: 0.1s;
+  }
+  
+  .slide {
+    height: 500px;
+    width: 300px;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: aliceblue;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s;
+
+    
+    &[data-pos="0"] {
+      z-index: 10;
+    }
+    
+    &[data-pos="-1"],
+    &[data-pos="1"] {
+      opacity: 0.7;
+      filter: blur(1px) grayscale(10%);
+    }
+    
+    &[data-pos="-1"] {
+      transform: translateX(-40%) scale(.9);
+      z-index: 0;
+    }
+    
+    &[data-pos="1"] {
+      transform: translateX(40%) scale(.9);
+      z-index: 0;
+    }
+
+  }
+}
+
+.cover-image1 {
+    width: 100%;
+    height: 320px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("assets_p/포스터01.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-origin: 0% 0%;
+    transition: all 0.3s ease-in;
+}
+
+.cover-image2 {
+    width: 300px;
+    height: 366px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("assets_p/포스터02.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-origin: 0% 0%;
+    transition: all 0.3s ease-in;
+}
+
+.cover-image3 {
+    width: 100%;
+    height: 366px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("assets_p/포스터03.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-origin: 0% 0%;
+    transition: all 0.3s ease-in;
+}
+
+.player-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 180px;
+    width: 300px;
+    background-color: #0c0c0c;
+    transition: all 0.3s;
+}
+
+.current-song-title {
+    position: absolute;
+    right: 23px;
+    font-size: 14px;
+    bottom: -60px;
+    transition: all 0.3s;
+}
+
+.info {
+    position: absolute;
+    left: 50%;
+    top: 345px;
+    width: 100%;
+    transform: translateX(-50%);
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.info h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.info h3 {
+    font-size: 13px;
+    color: aqua;
+}
+
+.time h6 {
+    font-size: 11px;
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    left: 0%;
+    bottom: 25px;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+/* play 버튼 */
+.controls #play {
+    font-size: 25px;
+}
+
+.sliderContainer .active .controls {
+    position: absolute;
+    width: 216px;
+    bottom: 4px;
+    left: -44px;
+    transform: scale(0.45);
+}
+
+.bar {
+    position: relative;
+    width: 90%;
+    /* 100% */
+    height: 2px;
+    top: 420px;
+    left: 18px;
+    /* 50% */
+    /* transform: translateX(50%); */
+    cursor: pointer;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+
+.bar .dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: -6px;
+    left: 0px;
+    user-select: none;
+    pointer-events: auto;
+    transition: all 0.1s;
+}
+
+.bar .time {
+    width: 100%;
+    position: absolute;
+    top: 13px;
+    /* left: 5px; */
+    /* right: 20px; */
+    user-select: none;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.1s;
+}
+
+
+
+
+
+

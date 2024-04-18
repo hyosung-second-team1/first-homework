@@ -85,6 +85,8 @@ button:focus {
     outline: none;
 }
 
+
+
 ul,
 li,
 ol {
@@ -242,6 +244,7 @@ button {
     padding: 0;
     list-style: none;
     display: flex;
+    gap: 30px
 }
 
 .site-navbar ul li a {
