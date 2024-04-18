@@ -4,17 +4,138 @@ const todoContainer = document.querySelector(".todo-container");
 const doneContainer = document.querySelector(".done-container");
 
 /**
+ * [updateLocalStorage]
+ * 로컬스토리지 업데이트
+ */
+const updateLocalStorage = () => {
+  const containers = document.querySelectorAll(".list-box");
+  containers.forEach((container) => {
+    const storedArr = [];
+    const containerItems = container.querySelectorAll("li");
+    console.log(containerItems);
+    containerItems.forEach((item, idx) => {
+      const storedObj = {
+        id: idx,
+        isChecked: item.querySelector("input[type='checkbox']").checked,
+        content: item.querySelector("span").innerText,
+      };
+      storedArr.push(storedObj);
+    });
+
+    localStorage.setItem(container.classList[0], JSON.stringify(storedArr));
+  });
+};
+
+/**
+ * [getLocalStorage]
+ * page load시, 로컬스토리지 불러와서 요소 넣어주기
+ */
+const getLocalStorage = () => {
+  const containers = document.querySelectorAll(".list-box");
+  containers.forEach((container) => {
+    const getStoredArr = JSON.parse(
+      localStorage.getItem(container.classList[0])
+    );
+    if (getStoredArr !== null) {
+      getStoredArr.forEach((storedList) => {
+        // TODO: 중복코드 수정
+        const todoListElement = document.createElement("li");
+        todoListElement.classList.add("draggable");
+        todoListElement.draggable = "true";
+
+        const todoCheckboxElement = document.createElement("input");
+        todoCheckboxElement.type = "checkbox";
+        todoCheckboxElement.checked = storedList.isChecked;
+        storedList.isChecked
+          ? todoCheckboxElement.classList.add("done")
+          : todoCheckboxElement.classList.remove("done");
+
+        const todoTextSpanElement = document.createElement("span");
+        todoTextSpanElement.innerText = storedList.content; // 여기만 수정 고고
+
+        const todoInputElement = document.createElement("input");
+        todoInputElement.classList.add("hidden");
+
+        const todoDeleteBtnElement = document.createElement("button");
+        todoDeleteBtnElement.classList.add("hidden");
+        todoDeleteBtnElement.innerText = "X";
+
+        const todoUpdateBtnElement = document.createElement("button");
+        todoUpdateBtnElement.classList.add("hidden");
+        todoUpdateBtnElement.innerText = "수정";
+
+        todoListElement.appendChild(todoCheckboxElement);
+        todoListElement.appendChild(todoTextSpanElement);
+        todoListElement.appendChild(todoInputElement);
+        todoListElement.appendChild(todoDeleteBtnElement);
+        todoListElement.appendChild(todoUpdateBtnElement);
+        container.appendChild(todoListElement);
+
+        checkboxChangeHandler(todoCheckboxElement, todoListElement);
+
+        reloadDragDOM();
+
+        // todo - 체크리스트 완료
+        // todoCheckboxElement.addEventListener("change", () => {
+        //   todoCheckboxElement.classList.toggle("done");
+        // });
+
+        // todo list - hover 시 삭제&수정 버튼 보여주기
+        todoListElement.addEventListener("mouseenter", () => {
+          todoDeleteBtnElement.classList.remove("hidden");
+          todoUpdateBtnElement.classList.remove("hidden");
+        });
+        todoListElement.addEventListener("mouseleave", () => {
+          todoDeleteBtnElement.classList.add("hidden");
+          todoUpdateBtnElement.classList.add("hidden");
+        });
+
+        // 삭제
+        todoDeleteBtnElement.addEventListener("click", (event) => {
+          event.target.parentNode.remove();
+          console.log("???");
+          updateLocalStorage();
+        });
+
+        // 수정
+        todoUpdateBtnElement.addEventListener("click", () => {
+          todoTextSpanElement.classList.add("hidden");
+          todoInputElement.classList.remove("hidden");
+          todoInputElement.value = todoTextSpanElement.innerText;
+          todoInputElement.focus();
+        });
+        todoInputElement.addEventListener("blur", () => {
+          todoTextSpanElement.innerText = todoInputElement.value;
+          todoInputElement.classList.add("hidden");
+          todoTextSpanElement.classList.remove("hidden");
+        });
+      });
+      // TODO: 중복코드 수정
+    }
+  });
+};
+
+/**
  * [dragEndHandler]
  * 드래그 종료 시 체크박스 상태 변경 함수
  */
 const dragEndHandler = (event, draggableItem) => {
   if (draggableItem.parentNode === doneContainer) {
     const checkbox = draggableItem.querySelector("input[type='checkbox']");
-    if (checkbox) checkbox.checked = true; // done-container에 들어가면 체크박스를 체크
+    if (checkbox) {
+      checkbox.checked = true; // done-container에 들어가면 체크박스를 체크
+      checkbox.classList.add("done");
+    }
   } else {
     const checkbox = draggableItem.querySelector("input[type='checkbox']");
-    if (checkbox) checkbox.checked = false; // 다른 container에 들어가면 체크박스 체크 해제
+    if (checkbox) {
+      checkbox.checked = false; // 다른 container에 들어가면 체크박스 체크 해제
+      checkbox.classList.remove("done");
+    }
   }
+
+  // drag End 될 때마다 localStorage 업데이트
+  updateLocalStorage();
 };
 
 /**
@@ -28,6 +149,8 @@ const checkboxChangeHandler = (checkbox, listItem) => {
     } else {
       todoContainer.appendChild(listItem);
     }
+    updateLocalStorage();
+    checkbox.classList.toggle("done");
   });
 };
 
@@ -152,9 +275,9 @@ todoForm.addEventListener("submit", (event) => {
     event.target["todo-input"].value = "";
 
     // todo - 체크리스트 완료
-    todoCheckboxElement.addEventListener("change", () => {
-      todoCheckboxElement.classList.toggle("done");
-    });
+    // todoCheckboxElement.addEventListener("change", () => {
+    //   todoCheckboxElement.classList.toggle("done");
+    // });
 
     // todo list - hover 시 삭제&수정 버튼 보여주기
     todoListElement.addEventListener("mouseenter", () => {
@@ -169,6 +292,8 @@ todoForm.addEventListener("submit", (event) => {
     // 삭제
     todoDeleteBtnElement.addEventListener("click", (event) => {
       event.target.parentNode.remove();
+      console.log("???");
+      updateLocalStorage();
     });
 
     // 수정
@@ -183,6 +308,8 @@ todoForm.addEventListener("submit", (event) => {
       todoInputElement.classList.add("hidden");
       todoTextSpanElement.classList.remove("hidden");
     });
+
+    updateLocalStorage();
   } else {
     alert("할 일을 입력해주세요!");
     event.target["todo-input"].focus();
@@ -190,3 +317,4 @@ todoForm.addEventListener("submit", (event) => {
 });
 
 reloadDragDOM();
+window.addEventListener("load", getLocalStorage());

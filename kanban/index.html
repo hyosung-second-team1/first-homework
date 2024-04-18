@@ -4,21 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KANBAN BOARD</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
     />
-    <script defer src="./kanban.js"></script>
+    <script defer src="./assets/kanban.js"></script>
   </head>
   <body>
     <div class="total-container">
       <section class="header-container">
         <h1>KANBAN BOARD</h1>
       </section>
-      <!-- TODO: localStorage 적용 (저장 버튼) -->
-      <!-- TODO: drag ghost 객체 만들기 -->
-      <!-- TODO: CSS 완성 -->
+      <!-- TODO: drag ghost 만들기 -->
+      <!-- TODO: CSS - drag ghost 완성 -->
       <!-- TODO: code 깔끔하게 리팩토링 하기 -->
       <section class="todo-register-container">
         <button class="add-btn">
@@ -37,29 +36,19 @@
       <div class="kanban-content">
         <section>
           <h3 class="not-started-badge">not-started</h3>
-          <ul class="todo-container list-box">
-            <li class="draggable" draggable="true">todo1</li>
-            <li class="draggable" draggable="true">todo2</li>
-            <li class="draggable" draggable="true">todo3</li>
-          </ul>
+          <ul class="todo-container list-box"></ul>
         </section>
         <section>
           <h3 class="progress-badge">progress</h3>
-          <ul class="progress-container list-box">
-            <li class="draggable" draggable="true">progress</li>
-          </ul>
+          <ul class="progress-container list-box"></ul>
         </section>
         <section>
           <h3 class="blocked-badge">blocked</h3>
-          <ul class="blocked-container list-box">
-            <li class="draggable" draggable="true">blocked</li>
-          </ul>
+          <ul class="blocked-container list-box"></ul>
         </section>
         <section>
           <h3 class="done-badge">done</h3>
-          <ul class="done-container list-box">
-            <li class="draggable" draggable="true">done</li>
-          </ul>
+          <ul class="done-container list-box"></ul>
         </section>
       </div>
     </div>
