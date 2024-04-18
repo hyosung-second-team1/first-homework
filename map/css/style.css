@@ -1,0 +1,240 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#map{
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: relative;
+}
+
+.category-wrap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+}
+
+.go-back-wrap{
+    margin: 1.5rem 1rem 1.5rem 0;
+    width: 75px;
+    height: 50px;
+    background-color: skyblue;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 7px 7px 10px -5px gray;
+    transition: 0.2s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.go-back-wrap:hover{
+    transform: translate(0, -5px);
+}
+
+.go-back{
+    width: 100%;
+    height: 80%;
+    background: url('../img/go-back.png') no-repeat;
+    background-size: contain;  
+    background-position: center;
+}
+
+.categories{
+    list-style: none;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    display: flex;
+}
+
+.category{
+    margin: 0.5rem;
+    padding: 0.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 7px 7px 10px -5px gray;
+    transition: 0.2s;
+    background-size: cover;
+}
+
+.category:hover{
+    transform: translate(0, -5px);
+}
+
+.all{
+    background-image: url('../img/all.png');
+}
+
+.cgv{
+    background-image: url('../img/cgv.png');
+}
+
+.lotte{
+    background-image: url('../img/lotte-cinema.png');
+}
+
+.mega{
+    background-image: url('../img/mega-box.png');
+}
+
+.etc{
+    background-image: url('../img/etc.png');
+}
+
+.selected{
+    box-shadow: 0px 0px 5px 2.5px rgb(0, 110, 255);
+}
+
+.center-location{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    margin: 2rem 1rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 40px;
+    box-shadow: 7px 7px 10px -5px gray;
+    cursor: pointer;
+    transition: 0.2s;
+    background-size: cover;
+    background-image: url('../img/my-location.png');
+    transition: 0.2s;
+}
+
+.center-location:hover{
+    transform: translate(0, -5px);
+}
+
+.list-wrap{
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    z-index: 2;
+    height: 100%;
+}
+
+.list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    height: 95%;
+}
+
+.list::-webkit-scrollbar{
+    display: none;
+}
+
+.item{
+    width: 275px;
+    background-color: white;
+    margin: 0.5rem 0;
+    border-radius: 10px;
+    box-shadow: 7px 7px 10px -5px gray;
+    transition: 0.3s;
+    padding-bottom: 10px;
+
+}
+
+.item a{
+    display:flex;
+    flex-direction: column;
+}
+
+.item:hover{
+    transform: translate(0, -5px);
+}
+
+.item:hover .title{
+    transition: 0.3s;
+    background-color: tomato;
+}
+
+.item a, .item a:hover, .item a:active{
+    text-decoration: none;
+    color: black;
+}
+
+@media only screen and (max-width: 720px) {
+    .list-wrap {
+        top: auto;
+        bottom: 0;
+        height: 30%;
+    }
+}
+
+.item span {
+    margin:5px 5px 0 5px;
+    font-size:13px;
+}
+
+.item .title{
+    font-weight: bold; 
+    font-size:14px;
+    border-radius: 10px 10px 0 0;
+    padding:10px; 
+    color: #fff;
+    background: skyblue url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;}
+
+.item .tel{
+    color:#0f7833;
+}
+
+.item .jibun {
+    color:#999;
+    font-size:11px;
+    margin-top:0;
+}
+
+.list .selected .title{
+    background-color: tomato;
+}
+
+.customoverlay {
+    position:relative;
+    bottom:85px;
+    border-radius:6px;
+    border: 1px solid #ccc;
+    border-bottom:2px solid #ddd;
+    float:left;
+}
+
+.customoverlay:nth-of-type(n) {
+    border:0; 
+    box-shadow:0px 1px 2px #888;
+}
+
+.customoverlay .title {
+    display:block;
+    text-align:center;
+    background-color: white;
+    border-radius:6px;
+    padding:10px 15px;
+    font-size:14px;
+    font-weight:bold;
+    overflow:hidden;
+}
+
+.customoverlay:after {
+    content:'';
+    position:absolute;
+    margin-left:-12px;
+    left:50%;
+    bottom:-12px;
+    width:22px;
+    height:12px;
+    background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
+}
