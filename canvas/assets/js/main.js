@@ -1,3 +1,23 @@
+// 이름 매개변수 처리
+const urlParams = new URLSearchParams(window.location.search);
+const target = urlParams.get('name'); // 'name' 매개변수 추출
+
+// 이미지 경로 설정
+const bgList = document.querySelectorAll('#bg-list>li>img');
+bgList.forEach((e, i) => {
+  const url = `assets/img/${target}/bg${i+1}.`
+  var img = new Image();
+  img.onload = function(){
+    e.setAttribute('src',url + 'jpg');
+  }
+  img.onerror = function() {
+    e.setAttribute('src', url + 'png')
+  }
+  img.src = url + 'jpg';
+});
+const stickerList = document.querySelectorAll('#sticker-list>li>img');
+stickerList.forEach((e, i) => e.setAttribute('src', `assets/img/${target}/drag${i+1}.png`));
+
 // 캔버스 DOM 셀렉트
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -22,8 +42,6 @@ let canvasBack = null;
 // 스티커 드래그 앤 드랍 변수
 let sticker = null;
 
-
-
 // 함수 - 셀렉터 지원
 const select = (el, all = false) => {
   el = el.trim()
@@ -47,6 +65,7 @@ const on = (type, el, listener, all = false) => {
 }
 
 
+
 // ============ 사이드바 토글 ============
 // 이벤트 등록 - 사이드바 토글
 on('click', '#toggle1', function(e) {
@@ -65,6 +84,7 @@ on('click', '#toggle3', function(e) {
   select('#sidebar2').classList.remove('mobile-nav-active');
 })
 // ============ 사이드바 토글 끝 ============
+
 
 
 // ============ 메뉴바 토글 ============
@@ -99,6 +119,7 @@ on('click', '#menu-toggle', menuIconActivate)
 // ============ 메뉴바 토글 끝 ============
 
 
+
 // ============ 캔버스 이미지 바꾸기 ============
 // 함수 - 캔버스 이미지 선택
 function bgChoice(e) {
@@ -116,6 +137,7 @@ on('click', '#bg1', bgChoice);
 on('click', '#bg2', bgChoice);
 on('click', '#bg3', bgChoice);
 // ================ 캔버스 이미지 바꾸기 끝 ============
+
 
 
 // ============ 캔버스 펜 드로우 ============
@@ -175,6 +197,12 @@ on('input', '#thickness-range', (e) => {
   select("#current-thickness").innerText = thickness
 })
 
+// 이벤트 등록 - 펜 색깔 변경
+on('input', '#color-icon', (e) => {
+  const penColor = e.target.value;
+  ctx.strokeStyle = penColor;
+})
+
 // 이벤트 등록 - 펜 비활성화
 on('click', '#draw-cancel', () => {
   isPenChoiced = false;
@@ -186,6 +214,7 @@ canvas.addEventListener('mousedown', handleMouseDown);
 canvas.addEventListener('mousemove', handleMouseMove);
 canvas.addEventListener('mouseup', handleMouseUp);
 // ============ 캔버스 펜 드로우 끝 ============
+
 
 
 // ============ 캔버스 스티커 드랍 끝============
@@ -253,10 +282,19 @@ on('drop', '#cancel-icon', cancelChoose);
 // ============ 캔버스 스티커 드랍 끝 ============
 
 
-// 이벤트 등록 - 배경 화면 제거
+// 이벤트 등록 - 홈으로 이동
+on('click', '#home', () => {
+  // location.href = '../index.html';
+});
+
+
+// 이벤트 등록 - 캔버스 초기화
 on('click', '#canvas-clear', () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   isPenChoiced = false;
+  select('#sidebar1').classList.remove('mobile-nav-active');
+  select('#sidebar2').classList.remove('mobile-nav-active');
+  select('#sidebar3').classList.remove('mobile-nav-active');
 });
 
 // 이벤트 등록 - 그림 저장
