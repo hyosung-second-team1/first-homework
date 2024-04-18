@@ -158,13 +158,14 @@ const update = function(newActive) {
 //     return `${minutes}:${seconds}`;
 // }
 
-`assets/${target}/`
+// `assets/${target}/`
 // 각 슬라이드에 대한 음악 파일 경로 배열
 const audioFiles = [
-    "assets_m/sunflower.mp3",
-    "assets_m/Way Up.mp3",
-    "assets_m/Whats Up Danger.mp3"
+    `assets/${target}/music/song01.mp3`,
+    `assets/${target}/music/song02.mp3`,
+    `assets/${target}/music/song03.mp3`
 ];
+
 
 carouselItems.forEach((slide, index) => {
     // 각 슬라이드에 대한 음악 파일 경로
