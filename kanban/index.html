@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KANBAN BOARD</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
+    <script defer src="./assets/kanban.js"></script>
+  </head>
+  <body>
+    <div class="total-container">
+      <section class="header-container">
+        <h1>KANBAN BOARD</h1>
+      </section>
+      <!-- TODO: drag ghost 만들기 -->
+      <!-- TODO: CSS - drag ghost 완성 -->
+      <!-- TODO: code 깔끔하게 리팩토링 하기 -->
+      <section class="todo-register-container">
+        <button class="add-btn">
+          <span>TO DO 추가하기</span>
+        </button>
+        <form class="todo-form hidden">
+          <input
+            name="todo-input"
+            type="text"
+            value=""
+            placeholder="할 일을 입력해주세요"
+          />
+          <button type="submit" class="submit-btn">등록</button>
+        </form>
+      </section>
+      <div class="kanban-content">
+        <section>
+          <h3 class="not-started-badge">not-started</h3>
+          <ul class="todo-container list-box"></ul>
+        </section>
+        <section>
+          <h3 class="progress-badge">progress</h3>
+          <ul class="progress-container list-box"></ul>
+        </section>
+        <section>
+          <h3 class="blocked-badge">blocked</h3>
+          <ul class="blocked-container list-box"></ul>
+        </section>
+        <section>
+          <h3 class="done-badge">done</h3>
+          <ul class="done-container list-box"></ul>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
