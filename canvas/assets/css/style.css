@@ -1,0 +1,179 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #272829;
+}
+
+/*--------------------------------------------------------------
+# Header(Navigation)
+--------------------------------------------------------------*/
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -300px;
+  z-index: 9997;
+  padding: 0 20px;
+  overflow-y: auto;
+  transition: right ease-in-out 0.5s;
+  background-color: rgba(253, 251, 251, 0.7);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+#sidebar1 {
+  width: 300px;
+}
+
+#sidebar2 {
+  width: 120px;
+}
+
+#sidebar3 {
+  width: 200px;
+  padding: 0;
+}
+
+.sidebar.mobile-nav-active {
+  right: 0px;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu {
+  height: 100vh;
+  padding: 30px 0;
+}
+
+.nav-menu>ul {
+  width: 100%;
+  height: 80%;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-menu>ul>li {
+  width: 93%;
+  list-style-type:none;
+  transition: width 0.1s;
+}
+
+.nav-menu>ul>li:hover {
+  width: 100%;
+}
+
+.choice-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.draw-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+#color-icon {
+  width: 100%;
+  height: 55px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#color-icon::-webkit-color-swatch {
+  border-radius: 50px;
+  border: none;
+}
+
+.drag-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/*--------------------------------------------------------------
+# Button Bar
+--------------------------------------------------------------*/
+
+/* Mobile Navigation */
+.btn-bar {
+  position: fixed;
+  left: -110px;
+  top: 20px;
+  padding: 20px 20px 0 20px;
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aliceblue;
+  border-radius: 10px;
+  transition: all 0.8s;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.btn-bar.active {
+  left: 20px;
+}
+
+.fixed-icon {
+  position: fixed;
+  top: -80px;
+  left: 20px;
+  width: 50px;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transition: width 0.2s, top 0.6s;
+}
+
+.fixed-icon-active {
+  top: 20px;
+}
+
+.fixed-icon:hover {
+  width: 55px;
+}
+
+.fixed-icon-choice {
+  width: 60px;
+}
+
+.bar-icon {
+  width: 85%;
+  margin-bottom: 30px;
+  cursor: pointer;
+  object-fit: contain;
+  transition: all 0.2s;
+}
+
+.bar-icon:hover {
+  width: 100%;
+  transition: all 0.2s;
+}
+
+/*--------------------------------------------------------------
+# Canvas
+--------------------------------------------------------------*/
+
+#canvas {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  margin: 0px auto;
+  object-fit: contain;
+}

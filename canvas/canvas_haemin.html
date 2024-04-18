@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>koffy : canvas</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- ======= menubar ======= -->
+  <!-- menu toggle button-->
+  <img src="assets/icon/menu.png" alt="" class="fixed-icon" id="menu-icon">
+  <!-- sticker delete button -->
+  <img src="assets/icon/cancel.png" alt="" class="fixed-icon" id="cancel-icon">
+  <!-- menubar -->
+  <div class="btn-bar active">
+    <img src="assets/icon/menu.png" alt="" class="bar-icon" id = "menu-toggle">
+    <img src="assets/icon/home.png" alt="" class="bar-icon">
+    <img src="assets/icon/background.png" alt="" class="bar-icon" id="toggle1">
+    <img src="assets/icon/draw.png" alt="" class="bar-icon" id="toggle2">
+    <img src="assets/icon/sticker.png" alt="" class="bar-icon" id="toggle3">
+    <img src="assets/icon/save.png" alt="save" class="bar-icon" id="save">
+    <img src="assets/icon/reset.png" alt="" class="bar-icon" data-bs-toggle="modal" data-bs-target="#reset-modal">
+  </div>
+  <!-- menubar End -->
+
+  <!-- ======= Header1 ======= -->
+  <header class="sidebar" id="sidebar1">
+    <div class="d-flex flex-column">
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+					<li><img src="assets/img/haemin/bg1.png" alt="background_1" class="choice-image" data-bs-toggle="modal" data-bs-target="#change-modal" id="bg1"></li>
+					<li><img src="assets/img/haemin/bg2.png" alt="background_2" class="choice-image" data-bs-toggle="modal" data-bs-target="#change-modal" id="bg2"></li>
+					<li><img src="assets/img/haemin/bg3.png" alt="background_3" class="choice-image" data-bs-toggle="modal" data-bs-target="#change-modal" id="bg3"></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- ======= Header2 ======= -->
+  <header class="sidebar" id="sidebar2">
+    <div class="d-flex flex-column">
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><img src="assets/icon/draw.png" alt="draw" class="draw-icon" id="draw"></li>
+          <li><img src="assets/icon/eraser.png" alt="eraser" class="draw-icon" id="eraser"></li>
+          <li><img src="assets/icon/setting.png" alt="thickness" class="draw-icon" id="thickness" data-bs-toggle="modal" data-bs-target="#thickness-modal"></li>
+          <!-- <li><img src="assets/icon/color.png" alt="draw-color" class="draw-icon" id="draw-color" data-bs-toggle="modal" data-bs-target="#color-modal"></li> -->
+          <li><input type="color" id="color-icon"></li>
+          <li><img src="assets/icon/draw_cancel.png" alt="draw-cancel" class="draw-icon" id="draw-cancel"></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+    <!-- ======= Header3 ======= -->
+    <header class="sidebar" id="sidebar3">
+      <div class="d-flex flex-column">
+        <nav id="navbar" class="nav-menu navbar">
+          <ul>
+            <li><img src="assets/img/haemin/drag1.png" alt="drag1" draggable = "true" class="drag-icon" id="drag1" ></li>
+            <li><img src="assets/img/haemin/drag2.png" alt="drag1" draggable = "true" class="drag-icon" id="drag2"></li>
+            <li><img src="assets/img/haemin/drag3.png" alt="drag1" draggable = "true" class="drag-icon" id="drag3"></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+	<!-- ======= end Headers ======= -->
+
+  <!-- ======= Change Modal ======= -->
+  <div class="modal fade" id="change-modal" tabindex="-1" aria-labelledby="change-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="change-modalLabel">캔버스 배경 변경</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          배경을 변경 시 현재까지 그린 그림은 초기화됩니다.<br>
+          진행하시겠습니까?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="canvas-change">변경</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ======= Thickness Modal ======= -->
+  <div class="modal fade" id="thickness-modal" tabindex="-1" aria-labelledby="thickness-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="thickness-modalLabel">펜 굵기</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <label for="thickness-range" class="form-label">현재 굵기 : <span id="current-thickness">5</span></label>
+          <input type="range" class="form-range" min="1" max="20" step="1" id="thickness-range">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ======= Color Modal ======= -->
+  <div class="modal fade" id="color-modal" tabindex="-1" aria-labelledby="color-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="color-modalLabel">펜 색깔</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- <label for="thickness-range" class="form-label">현재 굵기 : <span id="current-thickness">5</span></label> -->
+          <input type="color" class="form-range" id="color-change">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ======= Reset Modal ======= -->
+  <div class="modal fade" id="reset-modal" tabindex="-1" aria-labelledby="reset-modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="reset-modalLabel">캔버스 초기화</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          현재까지 그린 그림을 초기화합니다.<br>
+          진행하시겠습니까?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="canvas-clear">초기화</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ======= End Reset Modal ======= -->
+
+	<!-- ======= Canvas Section ======= -->
+  <canvas id="canvas"></canvas>
+	<!-- ======= End Canvas Section ======= -->
+  
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>
