@@ -1,21 +1,21 @@
 const myLocaIcon = new kakao.maps.MarkerImage(
-    '../img/my-location.png',
+    'assets/img/my-location.png',
     new kakao.maps.Size(30, 30));
 
 const allIcon = new kakao.maps.MarkerImage(
-    '../img/all.png',
+    'assets/img/all.png',
     new kakao.maps.Size(30, 30));
 
 const cgvIcon = new kakao.maps.MarkerImage(
-    '../img/cgv.png',
+    'assets/img/cgv.png',
     new kakao.maps.Size(30, 30));
 
 const lotteIcon = new kakao.maps.MarkerImage(
-    '../img/lotte-cinema.png',
+    'assets/img/lotte-cinema.png',
     new kakao.maps.Size(30, 30));
 
 const megaIcon = new kakao.maps.MarkerImage(
-    '../img/mega-box.png',
+    'assets/img/mega-box.png',
     new kakao.maps.Size(30, 30));
  
 
