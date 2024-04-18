@@ -32,10 +32,25 @@ body {
     align-items: center;
     justify-content: center;
     /* background-color: var(--primary-color); */
-    background-image: url("assets_p/배경화면09.jpg");
+    /* background-image: url("assets/poster/배경화면01.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+}
+
+.background-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 다른 요소 위에 배경 이미지가 오도록 함 */
+}
+
+.background-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .carousel {
@@ -103,10 +118,10 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background: url("assets_p/포스터01.jpg") no-repeat;
+    /* background: url("assets/poster/포스터01.jpg") no-repeat;
     background-size: cover;
     background-position: center;
-    background-origin: 0% 0%;
+    background-origin: 0% 0%; */
     transition: all 0.3s ease-in;
 }
 
@@ -116,10 +131,10 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background: url("assets_p/포스터02.jpg") no-repeat;
+    /* background: url("assets/poster/포스터02.jpg") no-repeat;
     background-size: cover;
     background-position: center;
-    background-origin: 0% 0%;
+    background-origin: 0% 0%; */
     transition: all 0.3s ease-in;
 }
 
@@ -129,10 +144,10 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background: url("assets_p/포스터03.jpg") no-repeat;
+    /* background: url("assets/poster/포스터03.jpg") no-repeat;
     background-size: cover;
     background-position: center;
-    background-origin: 0% 0%;
+    background-origin: 0% 0%; */
     transition: all 0.3s ease-in;
 }
 
