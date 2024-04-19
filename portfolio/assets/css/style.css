@@ -27,16 +27,6 @@ li {
   font-weight: bold;
 }
 
-p.big-font {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-p.small-font {
-  font-size: 16px;
-  font-weight: 600;
-}
-
 a:hover {
   color: #37b3ed;
   text-decoration: none;
