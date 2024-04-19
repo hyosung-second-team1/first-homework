@@ -10,13 +10,31 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   color: #272829;
 }
 
 a {
   color: #149ddd;
   text-decoration: none;
+  font-family: "Raleway", sans-serif;
+}
+
+li {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+p.big-font {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+p.small-font {
+  font-size: 16px;
+  font-weight: 600;
 }
 
 a:hover {
@@ -32,6 +50,8 @@ h5,
 h6 {
   font-family: "Raleway", sans-serif;
 }
+
+
 
 /*--------------------------------------------------------------
 # Back to top button
