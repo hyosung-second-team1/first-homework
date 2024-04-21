@@ -438,11 +438,11 @@ button {
 }
 
 #banner1 .carousel-control-prev {
-    left: 48.7%;
+    left: 40.7%;
 }
 
 #banner1 .carousel-control-next {
-    right: 48.7%;
+    right: 40.7%;
 }
 
 #banner1 .carousel-control-next:focus,
