@@ -178,7 +178,7 @@ carouselItems.forEach((slide, index) => {
     const progressDot = slide.querySelector('.dot');
     const currentTimeEl = slide.querySelector('.current-time');
     const durationEl = slide.querySelector('.duration');
-
+    
     let playing = false;
     let audio = new Audio(audioFile);
     
@@ -220,3 +220,9 @@ carouselItems.forEach((slide, index) => {
         return `${minutes}:${seconds}`;
     }
 });
+
+// const homeBtn = document.querySelector('.go-home');
+
+// homeBtn.addEventListener('click', () => {
+//   history.back(-1);
+// });
