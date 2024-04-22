@@ -319,6 +319,11 @@ button {
 .agency figure img {
     filter: drop-shadow(4px 6px 5px #c5c4c44f);
 }
+.imgsize{
+    width :230px;
+    height : 350px;
+    object-fit: cover;
+}
 
 .play_icon {
     padding-bottom: 0;
