@@ -7,9 +7,47 @@
 }
 
 .total-container {
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   margin: auto;
+}
+
+.header-container > h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.todo-register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5% 0;
+}
+
+.add-btn,
+.submit-btn {
+  font-size: 1.1rem;
+  border-radius: 20px;
+  background-color: #fff;
+  border: 1px solid #c7ced9;
+  box-shadow: 0px 2px 5px rgba(38, 51, 77, 0.03);
+  padding: 10px;
+}
+
+.todo-form > input {
+  padding: 10px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid black;
+}
+
+.add-btn:hover,
+.submit-btn:hover {
+  cursor: pointer;
+  transition: 0.5s;
+  transform: scale(1.1);
 }
 
 .hidden {
@@ -41,7 +79,7 @@
 }
 
 .list-box {
-  min-height: 100px;
+  min-height: 200px;
   padding: 1rem;
 }
 
@@ -53,22 +91,50 @@
 }
 
 .not-started-badge {
-  background-color: #ddd;
+  background-color: #d5eafb;
 }
 
 .progress-badge {
-  background-color: #f0e7f6;
-}
-
-.blocked-badge {
-  background-color: #ffdce0;
+  background-color: #ffdcdc;
 }
 
 .done-badge {
-  background-color: #cbdfd8;
+  background-color: #ddf3da;
 }
 
-/* test */
-input[type="checkbox"]:checked {
-  box-shadow: 0 0 0 3px hotpink;
+li {
+  padding: 10px 0;
+  border-radius: 20px;
+}
+
+.todoDeletetBtn,
+.todoUpdateBtn {
+  font-size: 0.8rem;
+  border-radius: 20px;
+  background-color: #fff;
+  border: 1px solid #c7ced9;
+  box-shadow: 0px 2px 5px rgba(38, 51, 77, 0.03);
+}
+
+.todoDeletetBtn {
+  color: tomato;
+}
+
+.todoUpdateBtn {
+  color: cornflowerblue;
+}
+
+.todoDeletetBtn:hover,
+.todoUpdateBtn:hover {
+  cursor: pointer;
+}
+
+.draggable {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.todoContentInput {
+  width: 60%;
 }
