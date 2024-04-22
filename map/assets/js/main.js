@@ -330,7 +330,7 @@ centerLoc.addEventListener('click', ()=>{
 })
 
 document.querySelector('.go-back').addEventListener('click', () => {
-    location.href = '../index.html';
+    location.href = '../asset/index.html';
 })
 
 
