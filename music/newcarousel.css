@@ -177,6 +177,21 @@ body {
     font-size: 11px;
 }
 
+.go-back{
+    display: flex;
+    /* gap: 20px; */
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 1%;
+    top: 15px;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
 .controls {
     display: flex;
     gap: 20px;
