@@ -24,13 +24,16 @@ const createTodoItem = (content, isChecked, container) => {
 
   const todoInputElement = document.createElement("input");
   todoInputElement.classList.add("hidden");
+  todoInputElement.classList.add("todoContentInput");
 
   const todoDeleteBtnElement = document.createElement("button");
   todoDeleteBtnElement.classList.add("hidden");
+  todoDeleteBtnElement.classList.add("todoDeletetBtn");
   todoDeleteBtnElement.innerText = "X";
 
   const todoUpdateBtnElement = document.createElement("button");
   todoUpdateBtnElement.classList.add("hidden");
+  todoUpdateBtnElement.classList.add("todoUpdateBtn");
   todoUpdateBtnElement.innerText = "수정";
 
   // TO-DO list 구성 요소 todoListElement에 추가
