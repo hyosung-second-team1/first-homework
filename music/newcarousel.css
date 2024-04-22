@@ -48,9 +48,13 @@ body {
 }
 
 .background-img img {
+    opacity: 0.8;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: fill;
+    /* 비율 그대로->크기 맞춰서->이미지 짤림 : cover
+    비율 그대로->전체나오게->빈공간생김 : contain
+    비율 똥망이어도->크기 맞춰서->전체나오게 : fill */
 }
 
 .carousel {
@@ -79,7 +83,7 @@ body {
   }
   
   .slide {
-    height: 500px;
+    height: 550px;
     width: 300px;
     position: absolute;
     overflow: hidden;
@@ -120,7 +124,7 @@ body {
 
 .cover-image{
     width: 100%;
-    height: 320px;
+    height: 400px;
     object-fit: fill;
     /* 비율 그대로->크기 맞춰서->이미지 짤림 : cover
     비율 그대로->전체나오게->빈공간생김 : contain
@@ -134,7 +138,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 180px;
+    height: 150px;
     width: 300px;
     background-color: #0c0c0c;
     transition: all 0.3s;
@@ -151,7 +155,7 @@ body {
 .info {
     position: absolute;
     left: 50%;
-    top: 345px;
+    top: 420px;
     width: 100%;
     transform: translateX(-50%);
     text-align: center;
@@ -183,14 +187,14 @@ body {
     height: 35px;
     position: absolute;
     left: 0%;
-    bottom: 25px;
+    bottom: 15px;
     z-index: 10;
     transition: all 0.3s;
 }
 
 /* play 버튼 */
 .controls #play {
-    font-size: 25px;
+    font-size: 28px;
 }
 
 .sliderContainer .active .controls {
@@ -206,7 +210,7 @@ body {
     width: 90%;
     /* 100% */
     height: 2px;
-    top: 415px;
+    top: 485px;
     left: 18px;
     /* 50% */
     /* transform: translateX(50%); */

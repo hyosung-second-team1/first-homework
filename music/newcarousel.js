@@ -161,9 +161,9 @@ const update = function(newActive) {
 // `assets/${target}/`
 // 각 슬라이드에 대한 음악 파일 경로 배열
 const audioFiles = [
-    `assets/${target}/music/song01.mp3`,
-    `assets/${target}/music/song02.mp3`,
-    `assets/${target}/music/song03.mp3`
+    `../music/assets/${target}/music/song01.mp3`,
+    `../music/assets/${target}/music/song02.mp3`,
+    `../music/assets/${target}/music/song03.mp3`
 ];
 
 
@@ -181,13 +181,14 @@ carouselItems.forEach((slide, index) => {
 
     let playing = false;
     let audio = new Audio(audioFile);
-
+    
     // 플레이어 컨트롤에 대한 이벤트 핸들러 추가
     playBtn.addEventListener('click', () => {
         if (!playing) {  
             playBtn.classList.replace("fa-play", "fa-pause");
             playing = true;
             audio.play();
+            console.log(audioFile);  // assets/null/music/song02.mp3   =>   이름 받아오는 데에서 문제가 생긴건가?
         } else {  
             playBtn.classList.replace("fa-pause", "fa-play");
             playing = false;
