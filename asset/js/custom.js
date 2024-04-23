@@ -8,7 +8,7 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
 
-
+  // 메인 메뉴 오버레이
   $(document).ready(function () {
     $(".main-menu ul li.megamenu").mouseover(function () {
       if (!$(this).parent().hasClass("#wrapper")) {
@@ -20,7 +20,7 @@ $(function () {
     });
   });
 
-
+  // 사이드바 토글 
   $(document).ready(function () {
     $('#sidebarCollapse').on('click', function () {
       $('#sidebar').toggleClass('active');
@@ -28,13 +28,11 @@ $(function () {
     });
   });
 
-  $('#blogCarousel').carousel({
-    interval: 5000
-  });
 
 
 });
 
+// 사이드 패널 네비게이션
 function openNav() {
   document.getElementById("mySidepanel").style.width = "250px";
 }
@@ -42,38 +40,6 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidepanel").style.width = "0";
 }
-
-
-(function ($) {
-  function doAnimations(elems) {
-    var animEndEv = "webkitAnimationEnd animationend";
-
-    elems.each(function () {
-      var $this = $(this),
-        $animationType = $this.data("animation");
-      $this.addClass($animationType).one(animEndEv, function () {
-        $this.removeClass($animationType);
-      });
-    });
-  }
-
-  var $myCarousel = $("#carouselExampleIndicators"),
-    $firstAnimatingElems = $myCarousel
-    .find(".carousel-item:first")
-    .find("[data-animation ^= 'animated']");
-
-  $myCarousel.carousel();
-
-  doAnimations($firstAnimatingElems);
-
-  $myCarousel.on("slide.bs.carousel", function (e) {
-    var $animatingElems = $(e.relatedTarget).find(
-      "[data-animation ^= 'animated']"
-    );
-    doAnimations($animatingElems);
-  });
-})(jQuery);
-
 
 
 $(document).ready(function () {
@@ -87,36 +53,6 @@ $(document).ready(function () {
     $(this).prev(".card-header").find(".fa").removeClass("fa-minus").addClass("fa-plus");
   });
 });
-
-function onChangeCallback(ctr) {
-  console.log("The country was changed: " + ctr);
-}
-
-$(document).ready(function () {
-  $(".niceCountryInputSelector").each(function (i, e) {
-    new NiceCountryInput(e).init();
-  });
-});
-
-
-
-$('.owl-carousel').owlCarousel({
-  loop: true,
-  margin: 15,
-  nav: true,
-
-  responsive: {
-    0: {
-      items: 1
-    },
-    600: {
-      items: 3
-    },
-    1000: {
-      items: 3
-    }
-  }
-})
 
 
 const navToggler = document.querySelector('.nav-toggler');
