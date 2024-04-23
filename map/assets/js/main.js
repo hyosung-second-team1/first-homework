@@ -83,7 +83,7 @@ function placesSearchCB(data, status, pagination) {
     displayPlaces(data);
 }
 
-// 지도에 마커를 표출하는 함수입니다
+// 지도에 마커 오버레이 목록을 표출하는 함수입니다
 function displayPlaces(places) {
     
     list.innerHTML = "";
