@@ -6,6 +6,8 @@ const closeBtn = document.querySelector('.close-btn');
 // ===== 비디오 플레이 =====
 playBtns.forEach((v,i) => {
   v.addEventListener('click',() => {
+    videoContainer.style.left = '50%';
+    videoContainer.style.top = '50%';
     videoContainer.classList.remove('no-show');
     video.setAttribute('src', `videos/${v.getAttribute('data-video')}.mp4`);
     video.setAttribute('type', `video/mp4`);
@@ -42,12 +44,15 @@ document.addEventListener('mousemove', (event) => {
   // video 요소의 위치를 마우스의 위치로 이동
   videoContainer.style.left = `${event.clientX - offset.x}px`;
   videoContainer.style.top = `${event.clientY - offset.y}px`;
-  console.log(video.style);
 });
 
 // 마우스 버튼을 뗄 때
 document.addEventListener('mouseup', () => {
-  console.log("awrgawerh")
   isDragging = false;
 });
+
+// 클릭시 일시정지 해제
+video.addEventListener('click',(e) => {
+  e.preventDefault();
+})
 // ===== 비디오 플레이 마우스로 옮기기 End =====

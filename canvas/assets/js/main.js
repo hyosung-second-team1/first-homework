@@ -27,14 +27,15 @@ canvas.setAttribute('width', window.innerWidth);
 canvas.setAttribute('height', window.innerHeight);
 
 // 캔버스 드로잉 관련 변수
-ctx.lineCap = 'round';
-ctx.lineJoin = 'round';
 let isPenChoiced = false;
 let isDrawing = false;
+let penColor = "black";
 let lastX = 0;
 let lastY = 0;
 ctx.lineWidth = 5;
 ctx.strokeStyle = 'black';
+ctx.lineCap = 'round';
+ctx.lineJoin = 'round';
 
 // 배경화면 이미지 변수
 let canvasBack = null;
@@ -169,6 +170,7 @@ function handleMouseMove(event) {
 
 // 함수 - 캔버스 팬 활성화
 function activePen() {
+  ctx.strokeStyle = penColor;
   isPenChoiced = true;
   select('#sidebar2').classList.remove('mobile-nav-active');
 }
@@ -180,7 +182,8 @@ on('click', '#draw', activePen)
 // 이벤트 등록 - 지우개 활성화
 on('click', '#eraser', () => {
   ctx.strokeStyle = 'white';
-  activePen();
+  isPenChoiced = true;
+  select('#sidebar2').classList.remove('mobile-nav-active');
 })
 
 // 이벤트 등록 - 펜 굵기 동기화
@@ -199,7 +202,7 @@ on('input', '#thickness-range', (e) => {
 
 // 이벤트 등록 - 펜 색깔 변경
 on('input', '#color-icon', (e) => {
-  const penColor = e.target.value;
+  penColor = e.target.value;
   ctx.strokeStyle = penColor;
 })
 
