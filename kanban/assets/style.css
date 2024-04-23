@@ -35,7 +35,15 @@
   padding: 10px;
 }
 
+.todo-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .todo-form > input {
+  width: 45%;
+  text-align: center;
   padding: 10px;
   border-top: none;
   border-left: none;
